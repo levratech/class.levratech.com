@@ -3,44 +3,89 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>LevraTech</title>
+		<title>AI Workshop Registration – LevraTech</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Edu+QLD+Beginner&family=Nothing+You+Could+Do&family=Trade+Winds&display=swap"
+			rel="stylesheet"
+		/>
 		<style>
 			body {
+				font-family: 'Edu QLD Beginner', sans-serif;
+				background: #111;
+				color: #f2f2f2;
 				margin: 0;
-				padding: 0;
-				font-family: 'Segoe UI', sans-serif;
+				padding: 2em;
 				display: flex;
-				justify-content: center;
-				align-items: center;
-				height: 100vh;
-				background: #0e0f11;
-				color: #ffffff;
 				flex-direction: column;
+				align-items: center;
 				text-align: center;
 			}
-
 			h1 {
-				font-size: 3rem;
-				margin-bottom: 0.5rem;
+				font-family: 'Trade Winds', cursive;
+				font-size: 2.2em;
+				color: #ffd700;
 			}
-
-			p {
-				font-size: 1.2rem;
-				color: #bbbbbb;
+			.subtext {
+				font-family: 'Nothing You Could Do', cursive;
+				font-size: 1.3em;
+				margin-bottom: 1em;
 			}
-
-			.logo {
-				margin-bottom: 1.5rem;
-				width: 100px;
-				height: auto;
+			form {
+				background: #222;
+				padding: 2em;
+				border-radius: 10px;
+				max-width: 400px;
+				width: 100%;
+			}
+			input,
+			select,
+			button {
+				width: 100%;
+				padding: 0.8em;
+				margin: 0.5em 0;
+				border-radius: 5px;
+				border: none;
+				font-size: 1em;
+			}
+			button {
+				background: #ffd700;
+				color: #000;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			.footer {
+				margin-top: 2em;
+				font-size: 0.8em;
+				color: #aaa;
 			}
 		</style>
 	</head>
 	<body>
-		<!-- Optional: add your logo if you have one -->
-		<!-- <img src="images/logo.png" alt="LevraTech Logo" class="logo" /> -->
+		<h1>✅ You Found It.</h1>
+		<div class="subtext">Reserve your seat now. Space is limited.</div>
 
-		<h1>Welcome to LevraTech</h1>
-		<p>AI-Powered Systems for Real-World Results.</p>
+		<form action="https://formspree.io/f/mnqekajg" method="POST">
+			<input type="text" name="name" placeholder="Your Name" required />
+			<input type="email" name="email" placeholder="Your Email" required />
+			<select name="session" required>
+				<option value="">Select a Session</option>
+				<option value="jun18">Tue, June 18 @ 6:30PM</option>
+				<option value="jun20">Thu, June 20 @ 6:30PM</option>
+				<option value="jun22">Sat, June 22 @ 3:00PM</option>
+			</select>
+			<input type="hidden" name="flyer_id" id="flyer_id" value="" />
+			<button type="submit">Reserve My Seat</button>
+		</form>
+
+		<div class="footer">
+			You’ll receive a confirmation email with full event details.
+			<br />Powered by LevraTech™
+		</div>
+
+		<script>
+			const urlParams = new URLSearchParams(window.location.search)
+			const flyerId = urlParams.get('id') || 'unknown'
+			document.getElementById('flyer_id').value = flyerId
+		</script>
 	</body>
 </html>
