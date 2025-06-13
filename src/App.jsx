@@ -3,18 +3,21 @@ import './App.css'
 function App() {
 	return (
 		<div className="hero">
-			<h1 className="headline noir-headline">Unlock AI for Your Business</h1>
+			<h1 className="headline noir-headline">Unlock AI For YOUR Business</h1>
 			<p className="subtext noir-subtext">
-				Reserve your seat in our free local workshop. Walk away with real
-				options even if tech isn’t your thing.
+				Reserve Your Seat In Our FREE Local Workshop.
+				<br />
+				Walk Away With Real Options Even If Tech Isn’t Your Thing.
 			</p>
 			<div className="supporting noir-supporting">
-				Workshops held at Savage Library, Large Meeting Room.
+				Location: Held At Savage Library
+				<br />
+				Large Meeting Room.
 				<br />
 				<span className="limited">
-					Space is limited!
+					Space Is Limited!
 					<br />
-					pick your date and claim your seat.
+					Pick Your Date And Claim Your Seat.
 				</span>
 			</div>
 			<form className="signup-form noir-form">
