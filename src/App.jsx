@@ -6,13 +6,15 @@ function App() {
 			<h1 className="headline noir-headline">Unlock AI for Your Business</h1>
 			<p className="subtext noir-subtext">
 				Reserve your seat in our free local workshop. Walk away with real
-				options—even if tech isn’t your thing.
+				options even if tech isn’t your thing.
 			</p>
 			<div className="supporting noir-supporting">
 				Workshops held at Savage Library, Large Meeting Room.
 				<br />
 				<span className="limited">
-					Space is limited—pick your date and claim your seat.
+					Space is limited!
+					<br />
+					pick your date and claim your seat.
 				</span>
 			</div>
 			<form className="signup-form noir-form">
@@ -48,7 +50,7 @@ function App() {
 					<option value="july1">July 1st, 7PM</option>
 				</select>
 				<button type="submit" className="noir-btn">
-					Register
+					Register_
 				</button>
 			</form>
 			<img
