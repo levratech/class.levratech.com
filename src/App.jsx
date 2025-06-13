@@ -2,7 +2,7 @@ import './App.css'
 
 function App() {
 	return (
-		<div className="hero noir-bg">
+		<div className="hero">
 			<h1 className="headline noir-headline">Unlock AI for Your Business</h1>
 			<p className="subtext noir-subtext">
 				Reserve your seat in our free local workshop. Walk away with real
