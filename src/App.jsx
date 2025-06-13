@@ -10,9 +10,10 @@ function App() {
 				Walk Away With Real Options Even If Tech Isn’t Your Thing.
 			</p>
 			<div className="supporting noir-supporting">
-				Location: Held At Savage Library
+				Location: Savage Library
 				<br />
-				Large Meeting Room.
+				Room: Large Meeting Room.
+				<br />
 				<br />
 				<span className="limited">
 					Space Is Limited!
@@ -56,6 +57,8 @@ function App() {
 					Register_
 				</button>
 			</form>
+			<br />
+			<br />
 			<img
 				src="/levratech_logo_vector.svg"
 				alt="LevraTech Logo"
