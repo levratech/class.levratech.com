@@ -24,8 +24,16 @@ a:hover {
 
 body {
 	margin: 0;
-	display: flex;
-	place-items: center;
+	font-family: 'Special Elite', sans-serif;
+	background-color: #121212;
+	color: #121212;
+	display: block;
+	padding: 1.5rem 1rem;
+	background-image: url('/levratech_background.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	min-width: 320px;
 	min-height: 100vh;
 }
@@ -94,15 +102,15 @@ body {
 	font-family: 'Special Elite', sans-serif;
 	background-color: #121212;
 	color: #121212;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+	display: block;
+	padding: 1.5rem 1rem;
 	background-image: url('/levratech_background.jpg');
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	min-width: 320px;
+	min-height: 100vh;
 }
 
 h1 {
