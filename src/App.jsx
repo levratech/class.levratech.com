@@ -18,7 +18,7 @@ function App() {
 			localStorage.setItem('levra_tracking', JSON.stringify(newTracking))
 
 			// Ping server with hash data
-			fetch('http://35.225.158.252:3000/log', {
+			fetch('https://api.www.levratech.com/log', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ function App() {
 						}
 
 						try {
-							await fetch('http://35.225.158.252:3000/log', {
+							await fetch('https://api.www.levratech.com/log', {
 								method: 'POST',
 								headers: {
 									'Content-Type': 'application/json',
