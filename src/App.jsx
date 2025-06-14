@@ -111,6 +111,7 @@ function App() {
 								name,
 								email,
 								date,
+								submit: true,
 								...trackingData,
 							}
 
@@ -122,7 +123,7 @@ function App() {
 									},
 									body: JSON.stringify(payload),
 								})
-								// Save registration info into tracking
+								// Save registration info into tracking only after successful submission
 								localStorage.setItem(
 									'levra_tracking',
 									JSON.stringify({ ...trackingData, name, email, date })
