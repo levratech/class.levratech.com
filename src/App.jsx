@@ -1,11 +1,40 @@
 import './App.css'
+import { useEffect, useState } from 'react'
 
 function App() {
+	const [formSubmitting, setFormSubmitting] = useState(false)
+
+	useEffect(() => {
+		const hashData = window.location.hash.substring(1)
+		const existingTracking = JSON.parse(
+			localStorage.getItem('levra_tracking') || '{}'
+		)
+
+		if (!existingTracking.timestamp) {
+			const newTracking = {
+				hash: hashData,
+				timestamp: Date.now(),
+			}
+			localStorage.setItem('levra_tracking', JSON.stringify(newTracking))
+
+			// Ping server with hash data
+			fetch('http://35.225.158.252:3000/log', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(newTracking),
+			})
+		}
+	}, [])
+
 	return (
 		<div className="hero">
 			<div className="ring-binder"></div>
 			<div className="hero-body">
-				<h1 className="headline noir-headline">Unlock AI For YOUR Business!!</h1>
+				<h1 className="headline noir-headline">
+					Unlock AI For YOUR Business!!
+				</h1>
 				<p className="subtext noir-subtext">
 					Reserve Your Seat In Our FREE Local Workshop.
 					<br />
@@ -23,7 +52,42 @@ function App() {
 						Pick Your Date And Claim Your Seat.
 					</span>
 				</div>
-				<form className="signup-form noir-form">
+				<form
+					className="signup-form noir-form"
+					onSubmit={async (e) => {
+						e.preventDefault()
+						setFormSubmitting(true)
+
+						const name = e.target.name.value
+						const email = e.target.email.value
+						const date = e.target.date.value
+						const trackingData = JSON.parse(
+							localStorage.getItem('levra_tracking') || '{}'
+						)
+
+						const payload = {
+							name,
+							email,
+							date,
+							...trackingData,
+						}
+
+						try {
+							await fetch('http://35.225.158.252:3000/log', {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json',
+								},
+								body: JSON.stringify(payload),
+							})
+							// Optionally: redirect or show success state
+						} catch (err) {
+							console.error('Registration failed:', err)
+						} finally {
+							setFormSubmitting(false)
+						}
+					}}
+				>
 					<label htmlFor="name" className="visually-hidden">
 						Name
 					</label>
@@ -55,8 +119,8 @@ function App() {
 						<option value="june24">June 24th, 7PM</option>
 						<option value="july1">July 1st, 7PM</option>
 					</select>
-					<button type="submit" className="noir-btn">
-						Register_
+					<button type="submit" className="noir-btn" disabled={formSubmitting}>
+						{formSubmitting ? 'Registering...' : 'Register_'}
 					</button>
 				</form>
 				<br />
